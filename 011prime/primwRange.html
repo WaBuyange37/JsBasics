@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --bac-color: rgba(5, 1, 1, 0.1);
+        --main-text-size: 32em;
+        --color: #3f42f3;
+      }
+      .center {
+        background-color: var(--bac-color);
+        color: var(--color);
+        margin-top: 100px;
+        margin-right: 180px;
+        margin-left: 140px;
+        height: 240px;
+        width: 60%;
+        border-radius: 15px;
+        padding: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .dudu {
+        margin-top: 42px;
+      }
+      .dudu,
+      label {
+        margin-right: 9px;
+        font-size: 1.2em;
+      }
+      .dudu,
+      input {
+        margin-left: 32px;
+        /* width: 83px; */
+      }
+      button {
+        padding: 7px;
+        font-size: 4.1rem;
+        /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        width: 399px;
+        position: relative;
+        left: 10px;
+        bottom: 100px;
+      }
+      p {
+        font-size: 1rem;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      div.akenge {
+        display: flex;
+        flex-direction: horizontal;
+      }
+      .akengo {
+        color: red;
+        position: relative;
+        top: 256px;
+        text-decoration: none;
+        width: 40%;
+      }
+      /* ul,
+      li {
+        list-style: none;
+        padding: 2px;
+        font-size: 10px;
+        font-style: oblique;
+        cursor: pointer;
+        margin: 20px;
+      } */
+      .akengo,
+      li {
+        list-style: none;
+        padding: 0px;
+
+        font-style: oblique;
+        cursor: pointer;
+        margin: 20px;
+        width: 100%;
+      }
+      a {
+        font-size: 23px;
+        text-decoration: none;
+      }
+      .wewe {
+        display: flex;
+        position: relative;
+        left: 10px;
+        bottom: 100px;
+      }
+      .wewe,
+      label:nth-child(2) {
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="akenge">
+      <div class="akengo">
+        <ul>
+          <li><a href="../011prime/prime.html"> Check a number</a></li>
+          <li><a href="../011prime/primwRange.html">select Range</a></li>
+        </ul>
+      </div>
+      <div class="center">
+        <div class="dudu wewe">
+          <label for="numInput"
+            >Select from :<input type="number" id="numInput"
+          /></label>
+
+          <label for="numInput2"
+            >Select to :<input type="number" id="numInput2"
+          /></label>
+        </div>
+        <div class="dudu">
+          <button onclick="primeRange()">Check Prime</button>
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Prime checker function as described above
+      function isPrime(num) {
+        if (num < 2) return false;
+        if (num === 2) return true;
+        if (num % 2 === 0) return false;
+
+        for (let i = 3; i <= Math.sqrt(num); i += 2) {
+          if (num % i === 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      //function to display in range
+      function primeRange() {
+        console.log("primeRange function called");
+
+        const a = parseInt(document.getElementById("numInput").value);
+        const b = parseInt(document.getElementById("numInput2").value);
+        const result = document.getElementById("result");
+        let display = [];
+        console.log(`Inputs - from: ${a}, to: ${b}`); // range displayed on console
+
+        if (isNaN(a) || isNaN(b) || a > b) {
+          result.innerText = "Please enter a valid range.";
+        } else {
+          for (let i = a; i <= b; i++) {
+            if (isPrime(i)) {
+              display.push(i); // Collect prime numbers
+            }
+          }
+          result.innerText = display.length
+            ? display.join(", ")
+            : "No primes found in the range.";
+          console.log(`Result: ${display.join(", ")}`);
+        }
+      }
+    </script>
+  </body>
+</html>
