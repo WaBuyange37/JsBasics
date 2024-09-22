@@ -19,6 +19,9 @@ function sumArray(limit) {
 }
 rl.question("enter array limit from 1 to limit: ", (entered) => {
   let number = parseInt(entered);
-  sumArray(number);
+  for (let i = 1; i <= number; i++) {
+    rl.question(`enter array element ${i}: `, (entered) => {});
+  }
+
   rl.close();
 });

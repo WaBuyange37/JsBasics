@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz</title>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <h1>FizzBuzz from 1 to 100</h1>
+        <p>you can change the range from!</p>
+        <input type="number" id="from" value="1" /><input
+          type="number"
+          id="to"
+          value="100"
+        />
+
+        <button onclick="fb()">Check</button>
+      </div>
+      <div>
+        <p id="output"></p>
+      </div>
+    </div>
+    <script>
+      function fb() {
+        const initial = parseInt(document.getElementById("from").value);
+        const final = parseInt(document.getElementById("to").value);
+        const result = document.getElementById("output");
+        //const arr = [];
+        let output = "";
+
+        if (initial < final) {
+          for (let i = initial; i <= final; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+              console.log("FizzBuzz");
+
+              output += `FizzBuzz\t\t`;
+              continue;
+            }
+            if (i % 3 === 0) {
+              console.log("Fizz");
+              output += `Fizz\t\t`;
+              continue;
+            }
+            if (i % 5 === 0) {
+              console.log("Buzz");
+              output += `Buzz\t\t`;
+              continue;
+            }
+
+            console.log(i);
+            output += i + "\t\t";
+          }
+          result.innerText = output;
+        } else {
+          result.innerText = `hello`;
+        }
+      }
+    </script>
+  </body>
+</html>

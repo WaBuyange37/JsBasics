@@ -22,7 +22,7 @@ function minmax(arr) {
 minmax(arra);
 rl.close();
 
-/**
+/**     
  * the simplest way is to use built in function
  * 
  * function findMaxMin(arr) {

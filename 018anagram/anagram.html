@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram</title>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <h1>write two strings and see is they are anagram</h1>
+        <p>Let go!!!</p>
+        <input type="text" id="word1" placeholder="type here" />
+        <input type="text" id="word2" placeholder="type here" />
+
+        <button onclick="anagram()">Check!</button>
+      </div>
+      <div>
+        <p id="output"></p>
+      </div>
+    </div>
+    <script>
+      function anagram() {
+        const firstW = document
+          .getElementById("word1")
+          .value.toLowerCase()
+          .replace(/\s+/g, "");
+        const lastW = document
+          .getElementById("word2")
+          .value.toLowerCase()
+          .replace(/\s+/g, "");
+        const result = document.getElementById("output");
+        if (firstW.length !== lastW.length) {
+          result.innerText = "No, they are not Anagram (different lengths)";
+          return;
+        }
+
+        const sortedW1 = firstW.split("").sort().join("");
+        const sortedW2 = lastW.split("").sort().join("");
+        if (sortedW1 === sortedW2) {
+          result.innerText = "Yes, they are Anagram";
+        } else {
+          result.innerText = "No, they are not Anagram";
+        }
+      }
+    </script>
+  </body>
+</html>

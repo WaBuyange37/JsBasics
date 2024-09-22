@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum in Range</title>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <h1>Sum of Numbers in a Range</h1>
+        <p>you can change the range from!</p>
+        <input type="number" id="from" value="1" /><input
+          type="number"
+          id="to"
+          value="100"
+        />
+
+        <button onclick="summation()">Sum</button>
+      </div>
+      <div>
+        <p id="output"></p>
+      </div>
+    </div>
+    <script>
+      function summation() {
+        const initial = parseInt(document.getElementById("from").value);
+        const final = parseInt(document.getElementById("to").value);
+        const result = document.getElementById("output");
+        let sum = 0;
+
+        if (initial < final) {
+          for (let i = initial; i <= final; i++) {
+            sum += i;
+          }
+          result.innerText = `${sum}`;
+        } else if (initial === final) {
+          result.innerText = `${initial}`;
+        } else {
+          result.innerText = `try to use valid range`;
+        }
+      }
+    </script>
+  </body>
+</html>
